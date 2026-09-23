@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mirilla Inmobiliaria | Vende, alquila o busca casa con el precio claro</title>
+  <meta name="description" content="Inmobiliaria de barrio. Valora tu casa en un minuto, mira pisos en venta y en alquiler y consulta nuestros honorarios antes de hablar con nadie.">
+  <!-- Web de demostració: no s'indexa (PLA.md §Honestedat). -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F3F3F0">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/gloock.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/public-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero.jpg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Mirilla Inmobiliaria",
+    "description": "Inmobiliaria de barrio: compraventa y alquiler de vivienda, con valoración orientativa online y honorarios publicados.",
+    "telephone": "+34600000000",
+    "areaServed": { "@type": "Country", "name": "España" },
+    "priceRange": "3 % + IVA",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:30", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "13:30" }
+    ]
+  }
+  </script>
+  <script src="js/i18n.js"></script>
+</head>
+<body>
+  <a class="salta" href="#contenido">Saltar al contenido</a>
+
+  <header class="cap">
+    <div class="wrap cap-in">
+      <a class="marca" href="index.html" aria-label="Mirilla Inmobiliaria, inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#B08A3E" stroke-width="4"/><circle cx="16" cy="16" r="7.5" fill="currentColor"/><circle cx="13.5" cy="13.5" r="2" fill="#F3F3F0" opacity=".55"/></svg>
+        <span>Mirilla<small>inmobiliaria</small></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="inmuebles.html">Inmuebles</a>
+        <a href="vender.html">Vender o alquilar</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <!-- Desplegable d'idioma (plantilla: <skill web-demo>/assets/i18n/tria-idioma.html).
+           NOMÉS existeix si el JS ha arrencat: js/i18n.js posa `te-js` a
+           l'<html> des del <head>. Un control mort val menys que cap control. -->
+      <div class="tria-idioma" data-idioma-tria>
+        <button class="tria-idioma-boto" type="button" data-idioma-boto
+                aria-expanded="false" aria-haspopup="true"
+                aria-label="Idioma de la página">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8ZM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96ZM4.26 14a7.85 7.85 0 0 1 0-4h3.38a16.6 16.6 0 0 0-.14 2c0 .68.06 1.34.14 2Zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16Zm2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8ZM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96ZM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2Zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38a7.85 7.85 0 0 1 0 4Z"/></svg>
+          <span data-idioma-actual data-sense-traduir>ES</span>
+          <svg class="tria-idioma-punta" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15 6 9h12z"/></svg>
+        </button>
+        <!-- Cada idioma es diu com es diu ell mateix, no traduït: qui busca la
+             seva llengua busca la paraula que coneix. Sempre CA · ES · EN. -->
+        <ul class="tria-idioma-menu" data-idioma-menu data-sense-traduir hidden>
+          <li><button type="button" data-idioma-opcio="ca" lang="ca">Català</button></li>
+          <li><button type="button" data-idioma-opcio="es" lang="es">Castellano</button></li>
+          <li><button type="button" data-idioma-opcio="en" lang="en">English</button></li>
+        </ul>
+      </div>
+      <a class="cap-tel" href="tel:+34600000000">600 000 000</a>
+      <a class="btn btn-principal" href="valoracion.html">Valorar mi casa</a>
+      <button class="nav-obre" type="button" aria-expanded="false" aria-controls="nav"><span></span><span class="visually-hidden">Menú</span></button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" aria-labelledby="h-hero">
+      <img class="hero-img" src="assets/img/hero.jpg" alt="" width="1600" height="896" fetchpriority="high">
+      <div class="wrap hero-in">
+        <h1 id="h-hero">Antes de firmar nada, mira cuánto vale tu casa.</h1>
+        <p class="hero-sub">Contesta ocho preguntas y te decimos a qué precio saldríamos a vender, a cuánto se cierran pisos como el tuyo y a partir de qué cifra se quedan meses en los portales.</p>
+        <div class="botons">
+          <a class="btn btn-principal" href="valoracion.html">Valorar mi casa</a>
+          <a class="btn btn-clar" href="inmuebles.html">Ver inmuebles</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portes" aria-labelledby="h-portes">
+      <div class="wrap">
+        <h2 id="h-portes">¿Qué necesitas?</h2>
+        <ul class="portes-llista">
+          <li><a href="valoracion.html?op=vender">
+            <span class="porta-frase">Quiero vender</span>
+            <span class="porta-desc">Valoración en un minuto y un plan de venta por escrito.</span>
+            <span class="porta-anar">Empezar la valoración</span>
+          </a></li>
+          <li><a href="valoracion.html?op=alquilar">
+            <span class="porta-frase">Quiero alquilar mi piso</span>
+            <span class="porta-desc">Renta recomendada y quién paga qué desde la Ley de Vivienda.</span>
+            <span class="porta-anar">Calcular la renta</span>
+          </a></li>
+          <li><a href="inmuebles.html">
+            <span class="porta-frase">Busco casa</span>
+            <span class="porta-desc">Pisos, áticos y casas en venta y en alquiler, con filtros.</span>
+            <span class="porta-anar">Ver inmuebles</span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccio seccio-fosca regla-seccio" aria-labelledby="h-regla">
+      <div class="wrap dues-col">
+        <div>
+          <h2 id="h-regla">No te vamos a inflar el precio para que firmes.</h2>
+          <p>Es el truco más viejo del sector. Te dicen una cifra alta, firmas la exclusiva y a los dos meses empiezan las rebajas. Para entonces el piso lleva semanas en los portales y los compradores ya piensan que algo le pasa.</p>
+          <p>Nuestra valoración te enseña tres cosas en la misma regla: el precio al que saldríamos, dónde se suelen cerrar las ventas y a partir de dónde el piso se quema.</p>
+          <p><a class="enllac" href="valoracion.html">Ver la regla de mi casa</a></p>
+        </div>
+        <figure class="regla" aria-labelledby="regla-ex-t">
+          <p class="regla-titol" id="regla-ex-t">Ejemplo: piso de 90 m² en un barrio residencial, para entrar a vivir</p>
+          <div class="regla-barra" aria-hidden="true">
+            <span class="regla-risc"></span>
+            <span class="regla-franja"></span>
+            <span class="regla-tanca"></span>
+          </div>
+          <div class="regla-escala" aria-hidden="true"><span>144.000 €</span><span>225.000 €</span></div>
+          <ul class="regla-llegenda">
+            <li><span class="mostra mostra-franja"></span><strong>Salida recomendada</strong><span class="valor">175.000 – 185.000 €</span></li>
+            <li><span class="mostra mostra-tanca"></span><strong>Cierre habitual</strong><span class="valor">167.000 – 175.000 €</span></li>
+            <li><span class="mostra mostra-risc"></span><strong>Zona de riesgo</strong><span class="valor">más de 198.000 €</span><span class="expl">Suele quedarse meses en los portales.</span></li>
+          </ul>
+          <figcaption class="nota">Precios de ejemplo. Cada agencia pone los de sus calles.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="seccio" aria-labelledby="h-cartera">
+      <div class="wrap">
+        <div class="intro">
+          <h2 id="h-cartera">En venta y en alquiler</h2>
+          <p>Algunos de los inmuebles que llevamos ahora. Todos con fotos hechas por nosotros, plano y los gastos a la vista.</p>
+        </div>
+        <ul class="immobles">
+          <li class="immoble" id="MI-101" data-op="venta" data-tipo="piso" data-hab="3" data-precio="259000" data-ascensor="1" data-terraza="0" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi101-a.jpg" alt="Salón con puerta al balcón y suelo de madera" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">259.000 €</p>
+              <h3>Piso con balcón en el centro</h3>
+              <ul class="immoble-dades"><li>92 m²</li><li>3 habitaciones</li><li>2 baños</li><li>3.ª planta con ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-101 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><a class="btn btn-linia" href="inmuebles.html?ref=MI-101">Ver ficha</a></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-102" data-op="venta" data-tipo="atico" data-hab="2" data-precio="212000" data-ascensor="1" data-terraza="1" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi102-a.jpg" alt="Terraza con mesa, sillas y macetas sobre los tejados" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">212.000 €</p>
+              <h3>Ático con terraza de 25 m²</h3>
+              <ul class="immoble-dades"><li>78 m²</li><li>2 habitaciones</li><li>1 baño</li><li>5.ª planta con ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-102 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><a class="btn btn-linia" href="inmuebles.html?ref=MI-102">Ver ficha</a></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-201" data-op="alquiler" data-tipo="piso" data-hab="2" data-precio="950" data-ascensor="1" data-terraza="0" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi201-a.jpg" alt="Salón amueblado con sofá gris y librería" width="1024" height="768" loading="lazy"><span class="immoble-op">En alquiler</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">950 € <small>/mes</small></p>
+              <h3>Piso amueblado en el centro</h3>
+              <ul class="immoble-dades"><li>70 m²</li><li>2 habitaciones</li><li>1 baño</li><li>4.ª planta con ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-201 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><a class="btn btn-linia" href="inmuebles.html?ref=MI-201">Ver ficha</a></div>
+            </div>
+          </li>
+        </ul>
+        <p class="nota">Inmuebles de ejemplo de esta web.</p>
+        <p><a class="btn btn-linia" href="inmuebles.html">Ver los 8 inmuebles</a></p>
+      </div>
+    </section>
+
+    <section class="seccio seccio-marmol" aria-labelledby="h-passos">
+      <div class="wrap">
+        <div class="intro">
+          <h2 id="h-passos">Cómo vendemos tu piso</h2>
+          <p>Lo mismo en cada venta, en este orden. Te lo damos por escrito el primer día.</p>
+        </div>
+        <ol class="passos">
+          <li><span class="ordinal">1</span><h3>Valoración</h3><p>Vamos a tu casa, la medimos y te damos el precio por escrito, con los pisos parecidos que se han vendido cerca.</p></li>
+          <li><span class="ordinal">2</span><h3>Fotos y plano</h3><p>Fotos hechas por nosotros con luz de día y un plano a escala. Si no tienes el certificado energético, lo gestionamos.</p></li>
+          <li><span class="ordinal">3</span><h3>Portales y compradores</h3><p>Lo publicamos en los portales y se lo enseñamos primero a quien ya nos ha pedido algo así.</p></li>
+          <li><span class="ordinal">4</span><h3>Visitas e informe del viernes</h3><p>Solo visitan compradores con la financiación hablada. Cada viernes te contamos quién ha ido y qué ha dicho.</p></li>
+          <li><span class="ordinal">5</span><h3>Arras y notaría</h3><p>Revisamos la oferta contigo, preparamos el contrato de arras y te acompañamos a firmar.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="seccio" aria-labelledby="h-cost">
+      <div class="wrap dues-col">
+        <div>
+          <h2 id="h-cost">Lo que cuesta, antes de que preguntes</h2>
+          <p>Casi ninguna agencia publica sus honorarios. Nosotros sí, porque es lo primero que quieres saber.</p>
+          <p>Sin permanencia: si no te convence cómo va, nos avisas con 15 días y lo dejamos.</p>
+          <p><a class="enllac" href="vender.html#honorarios">Ver todos los honorarios</a></p>
+        </div>
+        <div>
+          <dl class="cost-resum">
+            <div><dt>Vender</dt><dd>3 % + IVA<small>Del precio final, con un mínimo de 3.000 € + IVA. Solo si se vende.</small></dd></div>
+            <div><dt>Alquilar</dt><dd>Una mensualidad + IVA<small>La paga el propietario, como marca la Ley de Vivienda.</small></dd></div>
+          </dl>
+          <p class="nota">Honorarios de ejemplo de esta web.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccio seccio-marmol" aria-labelledby="h-nosaltres">
+      <div class="wrap dues-col">
+        <img src="assets/img/nosotros.jpg" alt="Oficina de Mirilla con mesa de nogal, estanterías con archivadores y escaparate a la calle" width="1200" height="800" loading="lazy">
+        <div>
+          <h2 id="h-nosaltres">Una oficina de barrio y un teléfono que contesta</h2>
+          <p>Vendemos y alquilamos pisos de una zona que conocemos a pie de calle. Quien valora tu casa es quien la enseña y quien te llama el viernes: no pasas de mano en mano.</p>
+          <p>Y si tu piso no es para nosotros, te lo decimos en la primera visita.</p>
+          <p><a class="enllac" href="nosotros.html">Conócenos</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccio" aria-labelledby="h-ressenyes">
+      <div class="wrap">
+        <div class="intro">
+          <h2 id="h-ressenyes">Lo que dicen quienes han vendido o alquilado con nosotros</h2>
+        </div>
+        <span class="etiqueta-ex">Reseñas de ejemplo</span>
+        <ul class="ressenyes">
+          <li><blockquote>«Nos dieron un precio más bajo que la otra agencia y al principio nos sentó mal. Se vendió en seis semanas y casi por lo que dijeron.»</blockquote><cite>Carmen y Luis, vendieron un piso de tres habitaciones</cite></li>
+          <li><blockquote>«Lo del informe del viernes parece poca cosa, pero fue lo único que me quitó la ansiedad.»</blockquote><cite>Rosa, vendió el piso de su madre</cite></li>
+          <li><blockquote>«Buscábamos alquiler con dos niños. Nos enseñaron solo lo que encajaba, sin hacernos perder tardes.»</blockquote><cite>Álex, inquilino</cite></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccio seccio-marmol" aria-labelledby="h-faq">
+      <div class="wrap">
+        <div class="intro"><h2 id="h-faq">Preguntas que nos hacen siempre</h2></div>
+        <div class="faq">
+          <details><summary>¿Cuánto cobráis por vender mi piso? ¿Y si no se vende?</summary><div><p>Un 3 % + IVA del precio final, con un mínimo de 3.000 € + IVA. Se paga en la notaría, el día que se vende. Si no se vende, no nos debes nada.</p></div></details>
+          <details><summary>¿Tengo que firmar exclusiva? ¿Puedo salirme?</summary><div><p>Trabajamos en exclusiva porque así podemos pagar fotos, plano y publicidad. Pero sin permanencia: nos avisas con 15 días y el encargo se acaba, sin penalización.</p></div></details>
+          <details><summary>¿Quién paga vuestros honorarios si alquilo?</summary><div><p>El propietario. Desde la Ley de Vivienda de 2023, los gastos de gestión del alquiler de vivienda los paga el arrendador, y así lo hacemos.</p></div></details>
+          <details><summary>¿Qué gastos tiene el comprador además del precio?</summary><div><p>En segunda mano, el Impuesto de Transmisiones Patrimoniales, que fija cada comunidad autónoma y suele estar entre el 6 % y el 10 %. Además, notaría, registro y, si hay hipoteca, la tasación. Te lo calculamos antes de hacer la oferta.</p></div></details>
+          <details><summary>¿La valoración online es fiable?</summary><div><p>Es una orientación con precios de ejemplo, para que llegues a la primera visita sabiendo de qué hablamos. El precio de verdad sale de ver tu casa: la luz, el estado, el ruido, la comunidad. Lo confirmamos en una visita sin compromiso.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccio cta-final" aria-labelledby="h-cta">
+      <div class="wrap">
+        <div>
+          <h2 id="h-cta">¿Cuánto vale tu casa?</h2>
+          <p>Ocho preguntas, un código en tu correo y el resultado en pantalla. Nadie te llama si no lo pides.</p>
+        </div>
+        <a class="btn btn-principal" href="valoracion.html">Valorar mi casa</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="peu">
+    <div class="wrap">
+      <div class="peu-dalt">
+        <div>
+          <a class="marca" href="index.html" aria-label="Mirilla Inmobiliaria, inicio">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#B08A3E" stroke-width="4"/><circle cx="16" cy="16" r="7.5" fill="#F3F3F0"/><circle cx="13.5" cy="13.5" r="2" fill="#1E1A17" opacity=".55"/></svg>
+            <span>Mirilla<small>inmobiliaria</small></span>
+          </a>
+          <p>Inmobiliaria de barrio. Compraventa y alquiler de vivienda, con el precio claro desde el primer día.</p>
+        </div>
+        <div>
+          <h2>Propietarios</h2>
+          <ul>
+            <li><a href="valoracion.html">Valorar mi casa</a></li>
+            <li><a href="vender.html">Vender o alquilar</a></li>
+            <li><a href="vender.html#honorarios">Honorarios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Compradores e inquilinos</h2>
+          <ul>
+            <li><a href="inmuebles.html?op=venta">Inmuebles en venta</a></li>
+            <li><a href="inmuebles.html?op=alquiler">Inmuebles en alquiler</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <dl class="peu-dades">
+        <div><dt>Teléfono</dt><dd><a href="tel:+34600000000">600 000 000</a></dd></div>
+        <div><dt>Horario</dt><dd>De lunes a viernes, de 9:30 a 14:00 y de 16:30 a 20:00. Sábados, de 10:00 a 13:30.</dd></div>
+        <div><dt>Registro de agentes inmobiliarios</dt><dd>n.º 0000 <span class="ex">(ejemplo)</span></dd></div>
+      </dl>
+      <div class="peu-baix">
+        <span>© 2026 Mirilla Inmobiliaria</span>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-flota" href="valoracion.html" aria-label="Valorar mi casa y hablar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+    <span>Valorar y hablar</span>
+  </a>
+
+  <script src="js/traduccions.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

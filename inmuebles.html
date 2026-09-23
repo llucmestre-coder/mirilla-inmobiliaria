@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pisos y casas en venta y en alquiler | Mirilla Inmobiliaria</title>
+  <meta name="description" content="Busca entre los pisos, áticos y casas de Mirilla: filtra por venta o alquiler, habitaciones, precio, ascensor, terraza o garaje y pide visita.">
+  <!-- Web de demostració: no s'indexa (PLA.md §Honestedat). -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F3F3F0">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/gloock.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/public-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/i18n.js"></script>
+</head>
+<body>
+  <a class="salta" href="#contenido">Saltar al contenido</a>
+
+  <header class="cap">
+    <div class="wrap cap-in">
+      <a class="marca" href="index.html" aria-label="Mirilla Inmobiliaria, inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#B08A3E" stroke-width="4"/><circle cx="16" cy="16" r="7.5" fill="currentColor"/><circle cx="13.5" cy="13.5" r="2" fill="#F3F3F0" opacity=".55"/></svg>
+        <span>Mirilla<small>inmobiliaria</small></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="inmuebles.html">Inmuebles</a>
+        <a href="vender.html">Vender o alquilar</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <!-- Desplegable d'idioma (plantilla: <skill web-demo>/assets/i18n/tria-idioma.html).
+           NOMÉS existeix si el JS ha arrencat: js/i18n.js posa `te-js` a
+           l'<html> des del <head>. Un control mort val menys que cap control. -->
+      <div class="tria-idioma" data-idioma-tria>
+        <button class="tria-idioma-boto" type="button" data-idioma-boto
+                aria-expanded="false" aria-haspopup="true"
+                aria-label="Idioma de la página">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8ZM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96ZM4.26 14a7.85 7.85 0 0 1 0-4h3.38a16.6 16.6 0 0 0-.14 2c0 .68.06 1.34.14 2Zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16Zm2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8ZM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96ZM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2Zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38a7.85 7.85 0 0 1 0 4Z"/></svg>
+          <span data-idioma-actual data-sense-traduir>ES</span>
+          <svg class="tria-idioma-punta" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15 6 9h12z"/></svg>
+        </button>
+        <!-- Cada idioma es diu com es diu ell mateix, no traduït: qui busca la
+             seva llengua busca la paraula que coneix. Sempre CA · ES · EN. -->
+        <ul class="tria-idioma-menu" data-idioma-menu data-sense-traduir hidden>
+          <li><button type="button" data-idioma-opcio="ca" lang="ca">Català</button></li>
+          <li><button type="button" data-idioma-opcio="es" lang="es">Castellano</button></li>
+          <li><button type="button" data-idioma-opcio="en" lang="en">English</button></li>
+        </ul>
+      </div>
+      <a class="cap-tel" href="tel:+34600000000">600 000 000</a>
+      <a class="btn btn-principal" href="valoracion.html">Valorar mi casa</a>
+      <button class="nav-obre" type="button" aria-expanded="false" aria-controls="nav"><span></span><span class="visually-hidden">Menú</span></button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="seccio" aria-labelledby="h-buscador">
+      <div class="wrap">
+        <div class="intro">
+          <h1 id="h-buscador">Inmuebles en venta y en alquiler</h1>
+          <p>Todo lo que llevamos ahora, con el precio, los metros y los gastos a la vista. Si no está lo que buscas, dinos qué necesitas y te avisamos cuando entre.</p>
+        </div>
+
+        <div class="buscador">
+          <details class="filtres" open data-filtres>
+            <summary>Filtros</summary>
+            <form class="filtres-cos" data-filtres-form>
+              <fieldset>
+                <legend>Operación</legend>
+                <div class="segment">
+                  <label><input type="radio" name="op" value="venta" checked><span>Comprar</span></label>
+                  <label><input type="radio" name="op" value="alquiler"><span>Alquilar</span></label>
+                </div>
+              </fieldset>
+              <div>
+                <label class="etiq" for="f-tipo">Tipo</label>
+                <select id="f-tipo" name="tipo">
+                  <option value="">Todos</option>
+                  <option value="piso">Piso</option>
+                  <option value="atico">Ático</option>
+                  <option value="bajo">Bajo con patio</option>
+                  <option value="casa">Casa o adosado</option>
+                </select>
+              </div>
+              <div>
+                <label class="etiq" for="f-hab">Habitaciones</label>
+                <select id="f-hab" name="hab">
+                  <option value="">Cualquiera</option>
+                  <option value="1">1 o más</option>
+                  <option value="2">2 o más</option>
+                  <option value="3">3 o más</option>
+                  <option value="4">4 o más</option>
+                </select>
+              </div>
+              <div>
+                <label class="etiq" for="f-precio">Precio máximo</label>
+                <select id="f-precio" name="precio">
+                  <option value="">Sin límite</option>
+                  <option value="150000" data-op="venta">150.000 €</option>
+                  <option value="200000" data-op="venta">200.000 €</option>
+                  <option value="250000" data-op="venta">250.000 €</option>
+                  <option value="300000" data-op="venta">300.000 €</option>
+                  <option value="700" data-op="alquiler">700 €/mes</option>
+                  <option value="1000" data-op="alquiler">1.000 €/mes</option>
+                  <option value="1300" data-op="alquiler">1.300 €/mes</option>
+                </select>
+              </div>
+              <fieldset>
+                <legend>Con</legend>
+                <label class="casella"><input type="checkbox" name="ascensor" value="1"> Ascensor</label>
+                <label class="casella"><input type="checkbox" name="terraza" value="1"> Terraza o patio</label>
+                <label class="casella"><input type="checkbox" name="garaje" value="1"> Garaje</label>
+              </fieldset>
+              <button class="filtres-neteja" type="reset">Quitar filtros</button>
+            </form>
+          </details>
+
+          <div>
+            <div class="resultats-cap">
+              <p aria-live="polite" data-comptador>8 inmuebles</p>
+              <label>Ordenar
+                <select data-ordena>
+                  <option value="">Más recientes</option>
+                  <option value="asc">Precio: de menor a mayor</option>
+                  <option value="desc">Precio: de mayor a menor</option>
+                </select>
+              </label>
+            </div>
+            <ul class="immobles" data-llista>
+          <li class="immoble" id="MI-101" data-op="venta" data-tipo="piso" data-hab="3" data-precio="259000" data-ascensor="1" data-terraza="0" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi101-a.jpg" alt="Salón con puerta al balcón y suelo de madera" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">259.000 €</p>
+              <h3>Piso con balcón en el centro</h3>
+              <ul class="immoble-dades"><li>92 m²</li><li>3 habitaciones</li><li>2 baños</li><li>3.ª planta con ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-101 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-101" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-102" data-op="venta" data-tipo="atico" data-hab="2" data-precio="212000" data-ascensor="1" data-terraza="1" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi102-a.jpg" alt="Terraza con mesa, sillas y macetas sobre los tejados" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">212.000 €</p>
+              <h3>Ático con terraza de 25 m²</h3>
+              <ul class="immoble-dades"><li>78 m²</li><li>2 habitaciones</li><li>1 baño</li><li>5.ª planta con ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-102 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-102" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-103" data-op="venta" data-tipo="piso" data-hab="2" data-precio="139000" data-ascensor="0" data-terraza="0" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi103-a.jpg" alt="Habitación vacía con suelo hidráulico y puerta de balcón de madera" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">139.000 €</p>
+              <h3>Piso para reformar en el casco antiguo</h3>
+              <ul class="immoble-dades"><li>65 m²</li><li>2 habitaciones</li><li>1 baño</li><li>2.ª planta sin ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-103 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-103" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-104" data-op="venta" data-tipo="casa" data-hab="4" data-precio="295000" data-ascensor="0" data-terraza="0" data-garaje="1">
+            <div class="immoble-foto"><img src="assets/img/mi104-a.jpg" alt="Jardín con césped junto a la piscina comunitaria" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">295.000 €</p>
+              <h3>Casa adosada con jardín y piscina comunitaria</h3>
+              <ul class="immoble-dades"><li>160 m²</li><li>4 habitaciones</li><li>3 baños</li><li>Dos plantas y garaje</li></ul>
+              <p class="immoble-ref">Ref. MI-104 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-104" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-105" data-op="venta" data-tipo="bajo" data-hab="3" data-precio="168000" data-ascensor="0" data-terraza="1" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi105-a.jpg" alt="Patio con plantas, mesa y suelo de baldosa" width="1024" height="768" loading="lazy"><span class="immoble-op">En venta</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">168.000 €</p>
+              <h3>Bajo con patio privado</h3>
+              <ul class="immoble-dades"><li>85 m²</li><li>3 habitaciones</li><li>1 baño</li><li>Planta baja</li></ul>
+              <p class="immoble-ref">Ref. MI-105 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-105" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-201" data-op="alquiler" data-tipo="piso" data-hab="2" data-precio="950" data-ascensor="1" data-terraza="0" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi201-a.jpg" alt="Salón amueblado con sofá gris y librería" width="1024" height="768" loading="lazy"><span class="immoble-op">En alquiler</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">950 € <small>/mes</small></p>
+              <h3>Piso amueblado en el centro</h3>
+              <ul class="immoble-dades"><li>70 m²</li><li>2 habitaciones</li><li>1 baño</li><li>4.ª planta con ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-201 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-201" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-202" data-op="alquiler" data-tipo="piso" data-hab="1" data-precio="640" data-ascensor="0" data-terraza="0" data-garaje="0">
+            <div class="immoble-foto"><img src="assets/img/mi202-a.jpg" alt="Salón con cocina abierta y mesa para dos" width="1024" height="768" loading="lazy"><span class="immoble-op">En alquiler</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">640 € <small>/mes</small></p>
+              <h3>Piso de una habitación</h3>
+              <ul class="immoble-dades"><li>45 m²</li><li>1 habitación</li><li>1 baño</li><li>1.ª planta sin ascensor</li></ul>
+              <p class="immoble-ref">Ref. MI-202 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-202" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+          <li class="immoble" id="MI-203" data-op="alquiler" data-tipo="casa" data-hab="3" data-precio="1250" data-ascensor="0" data-terraza="0" data-garaje="1">
+            <div class="immoble-foto"><img src="assets/img/mi203-a.jpg" alt="Salón con puerta corredera al jardín" width="1024" height="768" loading="lazy"><span class="immoble-op">En alquiler</span></div>
+            <div class="immoble-cos">
+              <p class="immoble-preu">1.250 € <small>/mes</small></p>
+              <h3>Casa adosada con jardín</h3>
+              <ul class="immoble-dades"><li>140 m²</li><li>3 habitaciones</li><li>2 baños</li><li>Dos plantas y garaje</li></ul>
+              <p class="immoble-ref">Ref. MI-203 <span class="ex">(ejemplo)</span></p>
+              <div class="immoble-obre"><button class="btn btn-linia" type="button" data-fitxa="MI-203" aria-haspopup="dialog">Ver ficha</button></div>
+            </div>
+          </li>
+            </ul>
+            <div class="buit" data-buit hidden>
+              <h2>Ahora mismo no tenemos nada así</h2>
+              <p>Prueba a quitar un filtro. O cuéntanos qué buscas y te avisamos en cuanto entre algo parecido: muchos pisos se venden antes de llegar a los portales.</p>
+              <div class="botons">
+                <button class="btn btn-linia" type="button" data-neteja>Quitar filtros</button>
+                <a class="btn btn-principal" href="contacto.html?motivo=busco">Avisadme si entra uno así</a>
+              </div>
+            </div>
+            <p class="nota">Inmuebles, referencias y certificados energéticos de ejemplo de esta web.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccio seccio-marmol cta-final" aria-labelledby="h-cta">
+      <div class="wrap">
+        <div>
+          <h2 id="h-cta">¿Tienes un piso para vender o alquilar?</h2>
+          <p>Mira cuánto vale y cuánto te costaría hacerlo con nosotros, antes de hablar con nadie.</p>
+        </div>
+        <a class="btn btn-principal" href="valoracion.html">Valorar mi casa</a>
+      </div>
+    </section>
+
+    <dialog class="fitxa" id="fitxa-MI-101" aria-labelledby="fitxa-MI-101-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En venta. Centro. Ref. MI-101 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-101-t">Piso con balcón en el centro</h2>
+        <p class="fitxa-preu">259.000 €</p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi101-a.jpg" alt="Salón con puerta al balcón y suelo de madera" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi101-b.jpg" alt="Cocina blanca con encimera de madera y azulejo azul" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Tres habitaciones exteriores, salón con balcón a la calle y cocina reformada. Suelos de madera y calefacción individual de gas.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>92 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>80 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>3</dd></div>
+          <div><dt>Baños</dt><dd>2</dd></div>
+          <div><dt>Planta</dt><dd>3.ª planta con ascensor</dd></div>
+          <div><dt>Certificado energético</dt><dd>E <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Gastos de comunidad</dt><dd>70 €/mes</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-101">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-102" aria-labelledby="fitxa-MI-102-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En venta. Barrio residencial. Ref. MI-102 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-102-t">Ático con terraza de 25 m²</h2>
+        <p class="fitxa-preu">212.000 €</p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi102-a.jpg" alt="Terraza con mesa, sillas y macetas sobre los tejados" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi102-b.jpg" alt="Salón luminoso con salida a la terraza" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Salón con techo inclinado que da a una terraza de 25 m² orientada al sur. Dos habitaciones y un baño completo, para entrar a vivir.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>78 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>68 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>2</dd></div>
+          <div><dt>Baños</dt><dd>1</dd></div>
+          <div><dt>Planta</dt><dd>5.ª planta con ascensor</dd></div>
+          <div><dt>Certificado energético</dt><dd>D <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Gastos de comunidad</dt><dd>55 €/mes</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-102">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-103" aria-labelledby="fitxa-MI-103-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En venta. Casco antiguo. Ref. MI-103 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-103-t">Piso para reformar en el casco antiguo</h2>
+        <p class="fitxa-preu">139.000 €</p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi103-a.jpg" alt="Habitación vacía con suelo hidráulico y puerta de balcón de madera" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi103-b.jpg" alt="Cocina antigua con muebles de madera" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Techos altos, suelo hidráulico original y balcón a la calle. Hay que reformar la cocina y el baño: te pasamos una estimación de la reforma antes de la visita.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>65 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>56 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>2</dd></div>
+          <div><dt>Baños</dt><dd>1</dd></div>
+          <div><dt>Planta</dt><dd>2.ª planta sin ascensor</dd></div>
+          <div><dt>Certificado energético</dt><dd>G <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Gastos de comunidad</dt><dd>30 €/mes</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-103">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-104" aria-labelledby="fitxa-MI-104-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En venta. Urbanización. Ref. MI-104 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-104-t">Casa adosada con jardín y piscina comunitaria</h2>
+        <p class="fitxa-preu">295.000 €</p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi104-a.jpg" alt="Jardín con césped junto a la piscina comunitaria" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi104-b.jpg" alt="Salón con chimenea y ventana al jardín" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Cuatro habitaciones, salón con chimenea y salida al jardín. Plaza de garaje y piscina de la urbanización.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>160 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>138 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>4</dd></div>
+          <div><dt>Baños</dt><dd>3</dd></div>
+          <div><dt>Planta</dt><dd>Dos plantas y garaje</dd></div>
+          <div><dt>Certificado energético</dt><dd>C <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Gastos de comunidad</dt><dd>90 €/mes</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-104">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-105" aria-labelledby="fitxa-MI-105-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En venta. Barrio residencial. Ref. MI-105 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-105-t">Bajo con patio privado</h2>
+        <p class="fitxa-preu">168.000 €</p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi105-a.jpg" alt="Patio con plantas, mesa y suelo de baldosa" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi105-b.jpg" alt="Dormitorio doble con armario de madera" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Patio de 20 m² de uso propio, tres habitaciones y un baño. Sin escaleras, para quien no quiere depender del ascensor.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>85 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>74 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>3</dd></div>
+          <div><dt>Baños</dt><dd>1</dd></div>
+          <div><dt>Planta</dt><dd>Planta baja</dd></div>
+          <div><dt>Certificado energético</dt><dd>E <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Gastos de comunidad</dt><dd>45 €/mes</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-105">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-201" aria-labelledby="fitxa-MI-201-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En alquiler. Centro. Ref. MI-201 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-201-t">Piso amueblado en el centro</h2>
+        <p class="fitxa-preu">950 € <small>/mes</small></p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi201-a.jpg" alt="Salón amueblado con sofá gris y librería" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi201-b.jpg" alt="Dormitorio con cama doble y armario empotrado" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Amueblado y listo para entrar. Dos habitaciones, salón con ventanal y calefacción central. Contrato de vivienda habitual.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>70 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>62 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>2</dd></div>
+          <div><dt>Baños</dt><dd>1</dd></div>
+          <div><dt>Planta</dt><dd>4.ª planta con ascensor</dd></div>
+          <div><dt>Certificado energético</dt><dd>E <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Fianza</dt><dd>Una mensualidad</dd></div>
+          <div><dt>Honorarios de la agencia</dt><dd>Los paga el propietario</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-201">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-202" aria-labelledby="fitxa-MI-202-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En alquiler. Barrio residencial. Ref. MI-202 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-202-t">Piso de una habitación</h2>
+        <p class="fitxa-preu">640 € <small>/mes</small></p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi202-a.jpg" alt="Salón con cocina abierta y mesa para dos" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi202-b.jpg" alt="Baño con ducha y azulejo blanco" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Salón con cocina abierta, un dormitorio y baño con ducha. Luminoso y fácil de mantener.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>45 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>40 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>1</dd></div>
+          <div><dt>Baños</dt><dd>1</dd></div>
+          <div><dt>Planta</dt><dd>1.ª planta sin ascensor</dd></div>
+          <div><dt>Certificado energético</dt><dd>F <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Fianza</dt><dd>Una mensualidad</dd></div>
+          <div><dt>Honorarios de la agencia</dt><dd>Los paga el propietario</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-202">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="fitxa" id="fitxa-MI-203" aria-labelledby="fitxa-MI-203-t">
+      <div class="fitxa-in">
+        <form method="dialog"><button class="fitxa-tanca" aria-label="Cerrar la ficha">×</button></form>
+        <p class="nota">En alquiler. Urbanización. Ref. MI-203 <span class="ex">(ejemplo)</span></p>
+        <h2 id="fitxa-MI-203-t">Casa adosada con jardín</h2>
+        <p class="fitxa-preu">1.250 € <small>/mes</small></p>
+        <div class="fitxa-fotos">
+          <img src="assets/img/mi203-a.jpg" alt="Salón con puerta corredera al jardín" width="1024" height="768" loading="lazy">
+          <img src="assets/img/mi203-b.jpg" alt="Cocina con mesa de desayuno junto a la ventana" width="1024" height="768" loading="lazy">
+        </div>
+        <p>Tres habitaciones, cocina con mesa de desayuno y salida a un jardín pequeño. Garaje para un coche, en una zona tranquila de casas.</p>
+        <dl class="fitxa-dades">
+          <div><dt>Superficie construida</dt><dd>140 m²</dd></div>
+          <div><dt>Superficie útil</dt><dd>122 m²</dd></div>
+          <div><dt>Habitaciones</dt><dd>3</dd></div>
+          <div><dt>Baños</dt><dd>2</dd></div>
+          <div><dt>Planta</dt><dd>Dos plantas y garaje</dd></div>
+          <div><dt>Certificado energético</dt><dd>D <span class="ex">(ejemplo)</span></dd></div>
+          <div><dt>Fianza</dt><dd>Una mensualidad</dd></div>
+          <div><dt>Honorarios de la agencia</dt><dd>Los paga el propietario</dd></div>
+        </dl>
+        <div class="botons">
+          <a class="btn btn-principal" href="contacto.html?ref=MI-203">Pedir visita</a>
+          <a class="btn btn-linia" href="tel:+34600000000">Llamar</a>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="peu">
+    <div class="wrap">
+      <div class="peu-dalt">
+        <div>
+          <a class="marca" href="index.html" aria-label="Mirilla Inmobiliaria, inicio">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#B08A3E" stroke-width="4"/><circle cx="16" cy="16" r="7.5" fill="#F3F3F0"/><circle cx="13.5" cy="13.5" r="2" fill="#1E1A17" opacity=".55"/></svg>
+            <span>Mirilla<small>inmobiliaria</small></span>
+          </a>
+          <p>Inmobiliaria de barrio. Compraventa y alquiler de vivienda, con el precio claro desde el primer día.</p>
+        </div>
+        <div>
+          <h2>Propietarios</h2>
+          <ul>
+            <li><a href="valoracion.html">Valorar mi casa</a></li>
+            <li><a href="vender.html">Vender o alquilar</a></li>
+            <li><a href="vender.html#honorarios">Honorarios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Compradores e inquilinos</h2>
+          <ul>
+            <li><a href="inmuebles.html?op=venta">Inmuebles en venta</a></li>
+            <li><a href="inmuebles.html?op=alquiler">Inmuebles en alquiler</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <dl class="peu-dades">
+        <div><dt>Teléfono</dt><dd><a href="tel:+34600000000">600 000 000</a></dd></div>
+        <div><dt>Horario</dt><dd>De lunes a viernes, de 9:30 a 14:00 y de 16:30 a 20:00. Sábados, de 10:00 a 13:30.</dd></div>
+        <div><dt>Registro de agentes inmobiliarios</dt><dd>n.º 0000 <span class="ex">(ejemplo)</span></dd></div>
+      </dl>
+      <div class="peu-baix">
+        <span>© 2026 Mirilla Inmobiliaria</span>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-flota" href="valoracion.html" aria-label="Valorar mi casa y hablar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+    <span>Valorar y hablar</span>
+  </a>
+
+  <script src="js/traduccions.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

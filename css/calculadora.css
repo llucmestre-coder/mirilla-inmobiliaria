@@ -1,0 +1,167 @@
+/* =========================================================================
+   MIRILLA INMOBILIARIA — valoració
+   Una pregunta per pantalla sobre un full blanc amb el filet de llautó.
+   El resultat és la regla del precio (styles.css). Tokens de styles.css.
+   ========================================================================= */
+
+.calc { background: var(--marmol); min-height: calc(100svh - var(--cap-alt)); padding-block: clamp(1.5rem, 1rem + 3vw, 3.5rem) 4rem; }
+/* El JS amaga passos amb l'atribut hidden; sense això el display de .calc-ops el guanya. */
+.calc [hidden] { display: none; }
+.calc-in { max-width: 56rem; }
+
+.calc-full {
+  background: var(--blanc); border: 1px solid var(--veta); border-top: 4px solid var(--laton);
+  padding: clamp(1.5rem, 1rem + 3vw, 3.5rem) clamp(1.25rem, 1rem + 3vw, 4rem) clamp(2rem, 1.5rem + 3vw, 3.5rem);
+  box-shadow: 0 14px 30px -18px rgba(30, 26, 23, 0.25);
+}
+
+/* Capçalera: enrere · progrés · comptador */
+.calc-cap { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; min-height: 2.75rem; }
+.calc-enrere {
+  display: inline-flex; align-items: center; gap: .3rem; padding: .5rem .6rem .5rem .2rem;
+  background: none; border: 0; cursor: pointer; font: 600 1rem/1 var(--f-text); color: var(--nogal);
+}
+.calc-enrere svg { width: 1.2rem; height: 1.2rem; }
+.calc-enrere:hover { color: var(--cobalto); }
+.calc-cap .calc-enrere[hidden] { display: inline-flex; visibility: hidden; }
+.calc-progres { position: relative; height: 2px; background: var(--veta); }
+.calc-progres i {
+  position: absolute; left: 0; right: 0; top: -1px; height: 4px; background: var(--cobalto);
+  transform-origin: left; transform: scaleX(0); transition: transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.calc-comptador { margin: 0; font: 600 var(--t-petit)/1 var(--f-text); color: var(--grafit); min-width: 2.5rem; text-align: right; }
+
+/* Respostes ja donades: xips que tornen enrere */
+.calc-resum { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 0; min-height: 2rem; }
+.calc-resum button {
+  font: 500 var(--t-petit)/1 var(--f-text); padding: .45rem .75rem; border-radius: 999px;
+  background: var(--marmol); border: 1px solid transparent; color: var(--nogal); cursor: pointer;
+}
+.calc-resum button:hover { border-color: var(--cobalto); color: var(--cobalto); }
+
+/* Pas */
+.calc-pas { margin-top: clamp(1.5rem, 1rem + 2vw, 2.75rem); }
+.calc-pas h1, .calc-pas h2 { font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem); max-width: 22ch; outline: none; }
+.calc-intro { font-weight: 600; color: var(--cobalto); margin-bottom: .75rem; max-width: 40rem; }
+.calc-ajuda { margin-top: .5rem; color: var(--grafit); max-width: 40rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .entra { animation: calc-entra .35s cubic-bezier(.2,.7,.2,1); }
+  .entra-enrere { animation: calc-entra-enrere .35s cubic-bezier(.2,.7,.2,1); }
+  @keyframes calc-entra { from { opacity: 0; transform: translateX(28px); } }
+  @keyframes calc-entra-enrere { from { opacity: 0; transform: translateX(-28px); } }
+}
+
+/* Opcions */
+.calc-ops { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem; margin-top: 1.75rem; }
+.calc-ops-dues { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.calc-op {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .3rem;
+  min-height: 4.25rem; padding: 1.1rem 3rem 1.1rem 1.25rem; text-align: left; cursor: pointer;
+  background: var(--terrazo); color: var(--nogal); border: 1.5px solid var(--veta); border-radius: var(--radi);
+  transition: border-color .15s, background-color .15s;
+}
+.calc-op:hover { border-color: var(--nogal); background: var(--blanc); }
+.calc-op-nom { font: 400 1.3rem/1.2 var(--f-titol); }
+.calc-op-desc { font-size: 1rem; line-height: 1.45; color: var(--grafit); }
+.calc-op[aria-pressed="true"] { border-color: var(--cobalto); background: var(--cobalto); color: var(--blanc); }
+.calc-op[aria-pressed="true"] .calc-op-desc { color: #D6DEF0; }
+.calc-op::after {
+  content: ""; position: absolute; top: 50%; right: 1rem; width: 1.2rem; height: 1.2rem; margin-top: -.6rem; border-radius: 50%;
+  border: 1.5px solid var(--veta); background: var(--blanc);
+}
+/* Selecció múltiple: casella quadrada en lloc de rodona */
+[data-multiple] .calc-op::after { border-radius: 3px; }
+.calc-op[aria-pressed="true"]::after {
+  border-color: var(--blanc);
+  background: var(--blanc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-8' fill='none' stroke='%231D3F8C' stroke-width='3'/%3E%3C/svg%3E") center / .85rem no-repeat;
+}
+.calc-continua { margin-top: 1.5rem; padding-inline: 2rem; }
+
+/* Slider dels metres */
+.calc-slider { margin-top: 1.75rem; max-width: 36rem; }
+.calc-xifra { display: block; font: 400 clamp(2.6rem, 1.8rem + 4vw, 4.25rem)/1 var(--f-titol); }
+.calc-slider input[type="range"] {
+  --pct: 22%;
+  -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 2.75rem;
+  margin-top: 1.25rem; background: transparent; cursor: pointer;
+}
+.calc-slider input[type="range"]:focus-visible { outline: none; }
+.calc-slider input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px; border-radius: 3px;
+  background: linear-gradient(to right, var(--cobalto) var(--pct), var(--veta) var(--pct));
+}
+.calc-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 2.1rem; height: 2.1rem; margin-top: -14px; border-radius: 50%;
+  background: var(--nogal); border: 4px solid var(--laton); box-shadow: 0 2px 8px rgba(30, 26, 23, .22);
+}
+.calc-slider input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px var(--cobalto), 0 2px 8px rgba(30, 26, 23, .22); }
+.calc-slider input[type="range"]::-moz-range-track { height: 6px; border-radius: 3px; background: var(--veta); }
+.calc-slider input[type="range"]::-moz-range-progress { height: 6px; border-radius: 3px; background: var(--cobalto); }
+.calc-slider input[type="range"]::-moz-range-thumb { width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--nogal); border: 4px solid var(--laton); }
+.calc-slider-escala { display: flex; justify-content: space-between; margin-top: .2rem; font-size: var(--t-petit); color: var(--grafit); }
+.calc-slider .btn { margin-top: 1.5rem; padding-inline: 2rem; }
+
+/* Correu i codi */
+.calc-form { margin-top: 1.75rem; max-width: 38rem; }
+.calc-form > label { display: block; font-weight: 600; margin-bottom: .45rem; }
+.calc-fila { display: flex; flex-wrap: wrap; gap: .6rem; }
+.calc-fila input {
+  flex: 1 1 16rem; min-height: 3.25rem; padding: .75rem .9rem; font: 400 1.125rem/1.3 var(--f-text); color: var(--nogal);
+  border: 1.5px solid #8A847D; border-radius: var(--radi); background: var(--blanc);
+}
+.calc-fila input:focus-visible { outline-offset: 0; border-color: var(--nogal); }
+.calc-fila input[aria-invalid="true"] { border-color: #A3261C; }
+.calc-fila .btn { min-height: 3.25rem; }
+.calc-consentiment { margin-top: 1.1rem; color: var(--grafit); }
+.calc-consentiment a { color: var(--nogal); }
+.calc-captcha { margin-top: .9rem; }
+.calc-error { margin: .75rem 0 0; color: #A3261C; font-weight: 600; min-height: 1.5em; }
+
+.calc-codi { display: flex; gap: .5rem; border: 0; margin: 0; padding: 0; }
+.calc-codi input {
+  width: 3.25rem; height: 4rem; text-align: center; font: 400 1.9rem/1 var(--f-titol); color: var(--nogal);
+  border: 1.5px solid #8A847D; border-radius: var(--radi); background: var(--blanc);
+}
+.calc-codi input:focus-visible { outline-offset: 0; border-color: var(--nogal); }
+@media (max-width: 400px) { .calc-codi { gap: .35rem; } .calc-codi input { width: 2.6rem; height: 3.5rem; font-size: 1.5rem; } }
+
+.calc-accions { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.25rem; }
+.calc-enllac {
+  background: none; border: 0; padding: .4rem 0; cursor: pointer;
+  font: 600 1rem/1.3 var(--f-text); color: var(--cobalto); text-decoration: underline; text-underline-offset: .2em;
+}
+.calc-enllac:disabled { color: var(--grafit); cursor: default; text-decoration: none; }
+
+/* ── Resultat ───────────────────────────────────────────────────────── */
+.calc-resultat { max-width: 48rem; }
+.calc-resultat h2 { margin-bottom: .3em; }
+.calc-resum-text { color: var(--grafit); margin-bottom: 1.5rem; }
+.calc-resultat .regla { margin: 0; }
+.calc-dades { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 1.5rem 0 0; background: var(--veta); border: 1px solid var(--veta); }
+.calc-dades div { background: var(--blanc); padding: 1rem 1.25rem; }
+.calc-dades dt { font-weight: 600; margin-bottom: .2rem; }
+.calc-dades dd { margin: 0; color: var(--grafit); }
+.calc-avis { margin: 1.5rem 0; padding: 1rem 1.2rem; background: var(--marmol); font-size: 1rem; }
+.calc-wa { min-height: 3.5rem; padding-inline: 1.5rem; font-size: 1.1rem; }
+.calc-wa svg { width: 1.4rem; height: 1.4rem; }
+.calc-resultat .nota { margin-top: .75rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .regla-franja.llisca { animation: llisca .7s .15s cubic-bezier(.3,.7,.2,1) both; }
+  @keyframes llisca { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+@media (max-width: 560px) {
+  .calc { padding-block: .75rem 2.5rem; }
+  .calc-in { width: min(100% - 1rem, var(--ample)); }
+  .calc-pas { margin-top: 1.1rem; }
+  .calc-resum { margin-top: .6rem; min-height: 0; }
+  .calc-ops, .calc-ops-dues { grid-template-columns: 1fr; gap: .55rem; margin-top: 1.1rem; }
+  .calc-op { min-height: 3.6rem; padding: .85rem 3rem .85rem 1rem; }
+  .calc-op-nom { font-size: 1.15rem; }
+  .calc-op-desc { font-size: .9375rem; }
+  .calc-fila .btn, .calc-continua { width: 100%; }
+  .calc-dades { grid-template-columns: 1fr; }
+  .calc-resultat .botons .btn { flex: 1 1 100%; }
+}

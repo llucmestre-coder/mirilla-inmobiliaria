@@ -1,0 +1,16 @@
+# Cloudflare Pages (connectat a GitHub). Web estàtica a l'arrel + Functions a /functions.
+# Secrets (NO aquí: el repo és públic) — `wrangler pages secret put <NOM> --project-name mirilla-inmobiliaria`:
+#   TURNSTILE_SECRET, BREVO_API_KEY, BREVO_SENDER, WHATSAPP, ADMIN_PASSWORD
+name = "mirilla-inmobiliaria"
+pages_build_output_dir = "."
+compatibility_date = "2026-09-01"
+
+[[kv_namespaces]]
+binding = "CODIS"
+id = "d25b23e9921c42a8a5b7fc4389779cfa"
+
+# Contactes de la valoració (seguiment). Esquema: schema.sql. Llista privada a /admin.
+[[d1_databases]]
+binding = "LEADS"
+database_name = "mirilla-leads"
+database_id = "33ff08a7-3236-4cf1-98b3-e5799306b853"
