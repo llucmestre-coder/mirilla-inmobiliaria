@@ -31,9 +31,11 @@
   }
 
   /* Pàgina actual al menú */
-  var aqui = location.pathname.split('/').pop() || 'index.html';
+  /* Cloudflare Pages serveix les pàgines sense «.html»: es compara sense l'extensió. */
+  var nomPagina = function (ruta) { return (ruta.split('/').pop() || 'index').replace(/\.html$/, ''); };
+  var aqui = nomPagina(location.pathname);
   document.querySelectorAll('.nav a').forEach(function (a) {
-    if (a.getAttribute('href') === aqui) a.setAttribute('aria-current', 'page');
+    if (nomPagina(a.getAttribute('href')) === aqui) a.setAttribute('aria-current', 'page');
   });
 
   /* ── Buscador d'immobles ────────────────────────────────────────────── */
